@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/guildwar-client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model guildwar_occupy_logs {
+  id                          BigInt      @default(autoincrement()) @id
+  mapName                     String      @db.VarChar(50) @default("")
+  guildId                     Int         @default(0)
+  guildName                   String      @db.VarChar(32) @default("")
+  guildOptions                String      @db.Text @default("")
+  createdAt                   DateTime    @default(now())
+}
