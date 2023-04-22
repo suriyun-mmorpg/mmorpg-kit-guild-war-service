@@ -120,6 +120,7 @@ export class GuildWarService {
                 guildId: form.guildId,
                 guildName: form.guildName,
                 guildOptions: form.guildOptions,
+                attackerWin: form.attackerWin,
                 createdAt: DateTime.local().toJSDate(),
             }
         })

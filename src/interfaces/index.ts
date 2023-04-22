@@ -3,4 +3,5 @@ export interface OccupyForm {
     guildId: number,
     guildName: string,
     guildOptions: string,
+    attackerWin: boolean,
 }
