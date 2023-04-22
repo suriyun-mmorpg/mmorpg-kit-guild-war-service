@@ -16,7 +16,7 @@ const server = fastify({ logger: true })
         addHook: false,
     })
     .after(() => {
-        server.get('/:id', functions.getEntryApi)
+        server.get('/:mapName', functions.getEntryApi)
 
         server.get('/occupy-history/:guildId', functions.getListApi)
 
