@@ -14,5 +14,6 @@ model guildwar_occupy_logs {
   guildId                     Int         @default(0)
   guildName                   String      @db.VarChar(32) @default("")
   guildOptions                String      @db.Text @default("")
+  attackerWin                 Boolean     @default(false)
   createdAt                   DateTime    @default(now())
 }
