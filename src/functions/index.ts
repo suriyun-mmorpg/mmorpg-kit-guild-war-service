@@ -8,6 +8,9 @@ export class GuildWarService {
 
     constructor(guildWarClient: GuildWarClient) {
         this.guildWarClient = guildWarClient;
+        (BigInt.prototype as any).toJSON = function () {
+            return this.toString();
+        };
     }
 
     public getListApi = async (request: FastifyRequest, reply: FastifyReply) => {
