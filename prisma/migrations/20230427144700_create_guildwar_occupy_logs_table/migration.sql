@@ -4,7 +4,7 @@ CREATE TABLE `guildwar_occupy_logs` (
     `mapName` VARCHAR(50) NOT NULL DEFAULT '',
     `guildId` INTEGER NOT NULL DEFAULT 0,
     `guildName` VARCHAR(32) NOT NULL DEFAULT '',
-    `guildOptions` TEXT NOT NULL DEFAULT '',
+    `guildOptions` TEXT NOT NULL,
     `attackerWin` BOOLEAN NOT NULL DEFAULT false,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
