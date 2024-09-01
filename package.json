@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@fastify/auth": "^4.6.1",
-    "@fastify/bearer-auth": "^9.4.0",
     "@prisma/client": "^5.19.0",
     "axios": "^1.7.7",
     "fastify": "^4.28.1",
