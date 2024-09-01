@@ -1,6 +1,5 @@
 import fastify, { FastifyListenOptions } from 'fastify'
 import authPlugin from '@fastify/auth'
-import bearerAuthPlugin from '@fastify/bearer-auth'
 import { PrismaClient as GuildWarClient } from '../prisma/generated/guildwar-client'
 import { OccupyForm } from './interfaces'
 import { GuildWarService } from './functions'
@@ -8,13 +7,23 @@ import { GuildWarService } from './functions'
 const secretKeys: string = process.env.SECRET_KEYS ? process.env.SECRET_KEYS : "[\"secret\"]"
 const guildWarClient = new GuildWarClient()
 
+const validateAppAccess = async(request: any, reply: any, done: (err?: Error) => void) =>
+{
+    const header = request.headers['x-api-key']!
+    if (!header) {
+        done(new Error('No secret key'))
+        return
+    }
+    const keys = JSON.parse(secretKeys)
+    if (keys.indexOf(header) < 0) {
+        done(new Error('Invalid secret key'))
+        return
+    }
+}
+
 const functions = new GuildWarService(guildWarClient)
 const server = fastify({ logger: true })
     .register(authPlugin)
-    .register(bearerAuthPlugin, {
-        keys: JSON.parse(secretKeys),
-        addHook: false,
-    })
     .after(() => {
         server.get('/:mapName', functions.getEntryApi)
 
@@ -26,7 +35,7 @@ const server = fastify({ logger: true })
 
         server.post<{ Body: OccupyForm }>('/internal/occupy', {
             preHandler: server.auth([
-                server.verifyBearerAuth!
+                validateAppAccess
             ]),
         }, functions.postOccupyApi)
     })
