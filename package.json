@@ -20,19 +20,19 @@
   },
   "homepage": "https://github.com/insthync/mmorpg-kit-guild-war-service#readme",
   "devDependencies": {
-    "@types/luxon": "^3.3.7",
-    "@types/node": "^20.10.5",
-    "prisma": "^5.7.1",
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.5.1",
+    "prisma": "^5.19.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@fastify/auth": "^4.4.0",
-    "@fastify/bearer-auth": "^9.2.1",
-    "@prisma/client": "^5.7.1",
-    "axios": "^1.6.3",
-    "fastify": "^4.25.2",
-    "luxon": "^3.4.4",
-    "tslib": "^2.6.2"
+    "@fastify/auth": "^4.6.1",
+    "@fastify/bearer-auth": "^9.4.0",
+    "@prisma/client": "^5.19.0",
+    "axios": "^1.7.7",
+    "fastify": "^4.28.1",
+    "luxon": "^3.5.0",
+    "tslib": "^2.7.0"
   }
 }
