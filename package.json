@@ -1,12 +1,13 @@
 {
   "name": "mmorpg-kit-guild-war-service",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A guild war service built with NodeJS, Fastify and Prisma",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p tsconfig.json",
-    "start": "node ./dist/index.js"
+    "start": "node ./dist/index.js",
+    "start:pm2": "pm2 start ./dist/index.js --name \"mmorpg-kit-guild-war-service\""
   },
   "repository": {
     "type": "git",
@@ -21,17 +22,17 @@
   "homepage": "https://github.com/insthync/mmorpg-kit-guild-war-service#readme",
   "devDependencies": {
     "@types/luxon": "^3.4.2",
-    "@types/node": "^22.5.1",
-    "prisma": "^5.19.0",
+    "@types/node": "^22.10.2",
+    "prisma": "^6.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.7.2"
   },
   "dependencies": {
-    "@fastify/auth": "^4.6.1",
-    "@prisma/client": "^5.19.0",
-    "axios": "^1.7.7",
-    "fastify": "^4.28.1",
+    "@fastify/auth": "^5.0.2",
+    "@prisma/client": "^6.1.0",
+    "axios": "^1.7.9",
+    "fastify": "^5.2.0",
     "luxon": "^3.5.0",
-    "tslib": "^2.7.0"
+    "tslib": "^2.8.1"
   }
 }
