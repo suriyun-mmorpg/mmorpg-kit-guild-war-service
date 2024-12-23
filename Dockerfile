@@ -11,7 +11,7 @@ COPY tsconfig.json ./tsconfig.json
 
 USER root
 
-RUN npm install
+RUN npm install --force
 RUN npx prisma generate --schema "./prisma/guildWarSchema.prisma"
 RUN npm run build
 RUN rm -rf ./src
