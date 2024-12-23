@@ -6,7 +6,7 @@ Guild war service for MMORPG KIT
 
 ## Install
 - Clone this repo
-- `npm i`
+- `npm i --force`
 
 ## Generate Prisma Clients
 - `npx prisma generate --schema "./prisma/guildWarSchema.prisma"`
