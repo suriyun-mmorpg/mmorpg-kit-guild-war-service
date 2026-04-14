@@ -30,7 +30,7 @@
   "dependencies": {
     "@fastify/auth": "^5.0.3",
     "@prisma/client": "^6.17.1",
-    "axios": "^1.13.5",
+    "axios": "^1.15.0",
     "fastify": "^5.8.1",
     "luxon": "^3.7.2",
     "tslib": "^2.8.1"
