@@ -1,11 +1,14 @@
 import fastify, { FastifyListenOptions } from 'fastify'
 import authPlugin from '@fastify/auth'
+import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { PrismaClient as GuildWarClient } from '../prisma/generated/guildwar-client'
 import { OccupyForm } from './interfaces'
 import { GuildWarService } from './functions'
 
 const secretKeys: string = process.env.SECRET_KEYS ? process.env.SECRET_KEYS : "[\"secret\"]"
-const guildWarClient = new GuildWarClient()
+const databaseUrl: string = process.env.DATABASE_URL ? process.env.DATABASE_URL : "mysql://root:password@localhost:3306/mmorpg_kit_iap_validation"
+const prismaAdapter = new PrismaMariaDb(databaseUrl)
+const guildWarClient = new GuildWarClient({ adapter: prismaAdapter })
 
 const validateAppAccess = async(request: any, reply: any, done: (err?: Error) => void) =>
 {
