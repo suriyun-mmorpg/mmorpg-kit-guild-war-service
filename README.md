@@ -6,7 +6,7 @@ Guild war service for MMORPG KIT
 
 ## Install
 - Clone this repo
-- `npm i --force`
+- `npm i`
 
 ## Generate Prisma Clients
 - `npx prisma generate --schema "./prisma/guildWarSchema.prisma"`
@@ -21,7 +21,7 @@ Guild war database's provider is MySQL, so you have to prepare MySQL server, als
 - `DATABASE_URL` is connection string to connect to guild war database.
 
 ## Guild War Database Creation
-After you set `DATABASE_URL` properly, then you have to push tables by uses command `npx prisma db push --schema "./prisma/guildWarSchema.prisma"`
+After you set `DATABASE_URL` properly, then you have to push tables by uses command `npx prisma migrate deploy --schema "./prisma/guildWarSchema.prisma"`
 
 ## Build and Start
 ```
