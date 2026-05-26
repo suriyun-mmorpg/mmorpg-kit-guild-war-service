@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:24-alpine
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
@@ -11,7 +11,7 @@ COPY tsconfig.json ./tsconfig.json
 
 USER root
 
-RUN npm install --force
+RUN npm install
 RUN npx prisma generate --schema "./prisma/guildWarSchema.prisma"
 RUN npm run build
 RUN rm -rf ./src
